@@ -2,31 +2,27 @@
 
 ## Project Overview
 
-In this project, you will apply the skills you have acquired in this course to operationalize a Machine Learning Microservice API. 
+A complete README file should include:
 
-You are given a pre-trained, `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. You can read more about the data, which was initially taken from Kaggle, on [the data source site](https://www.kaggle.com/c/boston-housing). This project tests your ability to operationalize a Python flask app—in a provided file, `app.py`—that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
+A summary of the project
+Instructions on how to run the Python scripts and web app (simply listing command line calls will suffice), and
+A short explanation of the files in the repository.
+The README should also include the "passed" status badge (shown above) at the top of the README.
 
-### Project Tasks
-
-Your project goal is to operationalize this working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. In this project you will:
-* Test your project code using linting
-* Complete a Dockerfile to containerize this application
-* Deploy your containerized application using Docker and make a prediction
-* Improve the log statements in the source code for this application
-* Configure Kubernetes and create a Kubernetes cluster
-* Deploy a container using Kubernetes and make a prediction
-* Upload a complete Github repo with CircleCI to indicate that your code has been tested
-
-You can find a detailed [project rubric, here](https://review.udacity.com/#!/rubrics/2576/view).
-
-**The final implementation of the project will showcase your abilities to operationalize production microservices.**
-
----
+This application serves out predictions (inference) about housing prices through API calls via a machine-learning microservice API.
 
 ## Setup the Environment
 
 * Create a virtualenv and activate it
 * Run `make install` to install the necessary dependencies
+
+### Key Files
+
+* app.py - the main Python application implementing the microservice API
+* ./run_docker.sh - builds the app.py application into a container and runs it
+* ./upload_docker.sh - pushes the application into the docker registry so it can run on Kubernetes
+* ./run_kubernetes.sh - runs the application in Kubernetes (must run upload_docker.sh first)
+* ./make_prediction.sh - tests the application by sending some sample data to the application
 
 ### Running `app.py`
 
@@ -34,9 +30,7 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 2. Run in Docker:  `./run_docker.sh`
 3. Run in Kubernetes:  `./run_kubernetes.sh`
 
-### Kubernetes Steps
+### Sample output
 
-* Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
-* Create Flask app in Container
-* Run via kubectl
+Sample output files are provided in the output_txt_files directory for both Docker and Kubernetes
+
