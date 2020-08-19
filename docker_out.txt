@@ -1,0 +1,108 @@
+(.devops) Macbook-Pro-2015:project-ml-microservice-kubernetes tannedlamb$ ./run_docker.sh 
+Sending build context to Docker daemon   1.08MB
+Step 1/6 : FROM python:3.7.3-stretch
+ ---> 34a518642c76
+Step 2/6 : WORKDIR /app
+ ---> Using cache
+ ---> 868bf462c49f
+Step 3/6 : COPY . app.py /app/
+ ---> 4ddc1cb18d3e
+Step 4/6 : RUN pip install --upgrade pip &&    pip install --trusted-host pypi.python.org -r requirements.txt
+ ---> Running in 482f1db87e70
+^C
+(.devops) Macbook-Pro-2015:project-ml-microservice-kubernetes tannedlamb$ ./run_docker.sh 
+Sending build context to Docker daemon   1.08MB
+Step 1/6 : FROM python:3.7.3-stretch
+ ---> 34a518642c76
+Step 2/6 : WORKDIR /app
+ ---> Using cache
+ ---> 868bf462c49f
+Step 3/6 : COPY . app.py /app/
+ ---> Using cache
+ ---> 4ddc1cb18d3e
+Step 4/6 : RUN pip install --upgrade pip &&    pip install --trusted-host pypi.python.org -r requirements.txt
+ ---> Running in cf354cfce8ec
+Collecting pip
+  Downloading https://files.pythonhosted.org/packages/5a/4a/39400ff9b36e719bdf8f31c99fe1fa7842a42fa77432e584f707a5080063/pip-20.2.2-py2.py3-none-any.whl (1.5MB)
+Installing collected packages: pip
+  Found existing installation: pip 19.1.1
+    Uninstalling pip-19.1.1:
+      Successfully uninstalled pip-19.1.1
+Successfully installed pip-20.2.2
+Collecting Click==7.0
+  Downloading Click-7.0-py2.py3-none-any.whl (81 kB)
+Collecting Flask==1.0.2
+  Downloading Flask-1.0.2-py2.py3-none-any.whl (91 kB)
+Collecting itsdangerous==1.1.0
+  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+Collecting Jinja2==2.10.3
+  Downloading Jinja2-2.10.3-py2.py3-none-any.whl (125 kB)
+Collecting MarkupSafe==1.1.1
+  Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux1_x86_64.whl (27 kB)
+Collecting numpy==1.17.2
+  Downloading numpy-1.17.2-cp37-cp37m-manylinux1_x86_64.whl (20.3 MB)
+Collecting pandas==0.24.2
+  Downloading pandas-0.24.2-cp37-cp37m-manylinux1_x86_64.whl (10.1 MB)
+Collecting python-dateutil==2.8.0
+  Downloading python_dateutil-2.8.0-py2.py3-none-any.whl (226 kB)
+Collecting pytz==2019.3
+  Downloading pytz-2019.3-py2.py3-none-any.whl (509 kB)
+Collecting scikit-learn==0.20.3
+  Downloading scikit_learn-0.20.3-cp37-cp37m-manylinux1_x86_64.whl (5.4 MB)
+Collecting scipy==1.3.1
+  Downloading scipy-1.3.1-cp37-cp37m-manylinux1_x86_64.whl (25.2 MB)
+Collecting six==1.12.0
+  Downloading six-1.12.0-py2.py3-none-any.whl (10 kB)
+Collecting Werkzeug==0.16.0
+  Downloading Werkzeug-0.16.0-py2.py3-none-any.whl (327 kB)
+Installing collected packages: Click, itsdangerous, Werkzeug, MarkupSafe, Jinja2, Flask, numpy, pytz, six, python-dateutil, pandas, scipy, scikit-learn
+Successfully installed Click-7.0 Flask-1.0.2 Jinja2-2.10.3 MarkupSafe-1.1.1 Werkzeug-0.16.0 itsdangerous-1.1.0 numpy-1.17.2 pandas-0.24.2 python-dateutil-2.8.0 pytz-2019.3 scikit-learn-0.20.3 scipy-1.3.1 six-1.12.0
+
+
+
+Removing intermediate container cf354cfce8ec
+ ---> 8b7ddbb8d33c
+Step 5/6 : EXPOSE 80
+ ---> Running in ce92e11f2cd2
+Removing intermediate container ce92e11f2cd2
+ ---> 320702f0392b
+Step 6/6 : CMD ["python", "app.py"]
+ ---> Running in c79366319f32
+Removing intermediate container c79366319f32
+ ---> ca355dc12b8d
+Successfully built ca355dc12b8d
+Successfully tagged tannedlamb/udacity_devops:latest
+REPOSITORY                  TAG                 IMAGE ID            CREATED             SIZE
+tannedlamb/udacity_devops   latest              ca355dc12b8d        1 second ago        1.24GB
+udacity_devops              latest              c96f83d06b49        21 minutes ago      1.24GB
+tannedlamb/udacity_devops   <none>              c96f83d06b49        21 minutes ago      1.24GB
+<none>                      <none>              36b2165a6569        28 minutes ago      1.24GB
+<none>                      <none>              5a3727728b9d        31 minutes ago      1.24GB
+docker101tutorial           latest              10a25be985d4        13 days ago         26.8MB
+<none>                      <none>              4d458c425898        13 days ago         85.6MB
+<none>                      <none>              78c7c1e5ef89        13 days ago         72MB
+<none>                      <none>              5bc5dc92f70d        13 days ago         224MB
+python                      alpine              872c3118ec53        2 weeks ago         42.7MB
+node                        12-alpine           18f4bc975732        3 weeks ago         89.3MB
+nginx                       alpine              ecd67fe340f9        5 weeks ago         21.6MB
+python                      3.7.3-stretch       34a518642c76        14 months ago       929MB
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 185-490-510
+[2020-08-19 14:04:36,659] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2020-08-19 14:04:37,108] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-08-19 14:04:37,297] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-08-19 14:04:37,347] INFO in app: Prediction for: {'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}} is: [20.35373177134412]
+172.17.0.1 - - [19/Aug/2020 14:04:37] "POST /predict HTTP/1.1" 200 -
+
